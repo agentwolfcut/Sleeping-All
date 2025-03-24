@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleeping Case Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Sleeping Case Gallery</h1>
+    
+    <input type="text" id="search" placeholder="Search images..." oninput="filterImages()">
+    <button onclick="openModal()">+ Add Image</button>
+
+    <div class="gallery" id="gallery"></div>
+
+    <!-- Modal for adding images -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add New Image</h2>
+            <input type="text" id="imageName" placeholder="Image Name">
+            <input type="file" id="imageFile" onchange="previewImage()">
+            <img id="imagePreview" src="" alt="Image Preview" style="display:none;">
+            <input type="text" id="reporterName" placeholder="Reporter Name">
+            <button onclick="addImage()">Add</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
