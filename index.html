@@ -28,6 +28,27 @@
         </div>
     </div>
 
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append('image', document.getElementById('image').files[0]);
+
+            const response = await fetch('https://sleeping-all.onrender.com/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.json();
+            if (result.imageUrl) {
+                const imgElement = document.createElement('img');
+                imgElement.src = result.imageUrl;
+                imgElement.alt = 'Uploaded image';
+                imgElement.style.width = '300px';
+                document.getElementById('imageGallery').appendChild(imgElement);
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

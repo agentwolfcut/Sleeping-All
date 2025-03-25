@@ -27,7 +27,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).send('No file uploaded');
   }
-  const imageUrl = `http://localhost:${port}/uploads/${req.file.filename}`;
+  const imageUrl = `https://sleeping-all.onrender.com/uploads/${req.file.filename}`;
   res.json({ message: 'Image uploaded successfully', imageUrl });
 });
 
